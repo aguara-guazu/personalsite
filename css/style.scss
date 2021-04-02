@@ -1,0 +1,360 @@
+//css variables
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;300;500;600&family=Source+Code+Pro&display=swap');
+
+$font-primary: 'Source Code Pro', monospace;
+$font-titles: 'Oswald', sans-serif;
+
+$primary-contrast: #F5F6FA;
+$background-secondary: #313A46;
+$card-radius: 16px;
+$drop-shadow: 17px 13px 30px -13px rgba(0, 0, 0, 0.75);
+$background-primary: #d97855;
+//animation variables
+//pulsation
+$wave-shadow: rgb(89, 91, 92);
+$bright: drop-shadow(3px 3px 3px $wave-shadow);
+$bright-post: drop-shadow(4px 4px 4px $wave-shadow);
+//css general
+html {
+  background-color: $background-primary;
+}
+
+@media (min-width: 1060px) and (orientation: landscape) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  main {
+    margin-top: 3%;
+
+    display: grid;
+    grid-template-columns: 0.25fr 1fr;
+    min-height: 10%;
+    min-width: 15em;
+    max-width: 80em;
+    border-radius: $card-radius;
+    box-shadow: $drop-shadow;
+    -moz-box-shadow: $drop-shadow;
+    -webkit-box-shadow: $drop-shadow;
+
+  }
+
+  #info-cv {
+    border-top-right-radius: $card-radius;
+    border-bottom-right-radius: $card-radius;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:  "experiencia habilidades"
+                          "educacion habilidades";
+    min-width: 50em;
+    padding-left: 2em;
+    position: relative;
+
+    #educacion {
+      grid-area: educacion;
+    }
+
+    #experiencia {
+      grid-area: experiencia;
+    }
+
+    #habilidades {
+      grid-area: habilidades;
+    }
+
+    #codepen-github {
+      grid-area: habilidades;
+      grid-row-start: 2;
+      grid-row-end: 2;
+      display: flex;
+    }
+
+    .item-github-codepen {
+      align-self: flex-end;
+      position: relative;
+
+      .item-github-codepen-icon {
+        padding-right: 2em;
+        z-index: 3;
+
+        svg {
+          width: auto;
+          height: 13em;
+          padding-bottom: 1em;
+          fill: $wave-shadow;
+          opacity: 30%;
+        }
+      }
+
+      .item-github-codepen-text {
+        span {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 1;
+        }
+      }
+
+      &:hover {
+        svg {
+          fill: $background-primary;
+          opacity: 100%;
+          transition: all 0.3s;
+        }
+      }
+    }
+
+    #github:after {
+      content: "GitHub";
+      position: absolute;
+      left: 26%;
+      top: 37%;
+      height: 100%;
+      width: 100%;
+      color: black;
+      font-weight: 500;
+      font-size: 1.5em;
+    }
+
+    #codepen:after {
+      content: "CodePen";
+      position: absolute;
+      left: 22%;
+      top: 37%;
+      height: 100%;
+      width: 100%;
+      color: black;
+      font-weight: 500;
+      font-size: 1.5em;
+    }
+  }
+
+  #info-personal {
+    border-top-left-radius: $card-radius;
+    border-bottom-left-radius: $card-radius;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0.3em;
+    font-family: $font-titles;
+    color: $primary-contrast;
+    font-weight: 500;
+    font-size: 1em;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  //pequeños ajustes por los iconos y los textos que no coincidan con el formato
+  #item1 {
+    p {
+      padding-left: 0em;
+    }
+  }
+  #item2 {
+    svg {
+      height: auto;
+      width: 66%;
+    }
+  }
+  #item3 {
+    svg {
+      transform: translate(-10%, 25%);
+    }
+  }
+  #item4 {
+    svg {
+      transform: translate(-3%, 18%);
+    }
+  }
+
+  //links de los items
+  .item {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:  "item-icon item-text";
+    height: 3em;
+
+    .item-icon {
+      border-radius: 50% 50% 50% 5px;
+      width: 3em;
+      background-color: $background-primary;
+      z-index: 2;
+
+      svg {
+        transform: translate(0%, 22%);
+        fill: $primary-contrast;
+        width: auto;
+        height: 75%;
+      }
+    }
+
+    .item-text {
+      z-index: 1;
+      width: 8.5em;
+      background-color: $primary-contrast;
+      transform: translateX(-1.5em);
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: $card-radius;
+      display: table;
+      position: relative;
+
+      span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      p {
+        color: $background-primary;
+        position: relative;
+        display: table-cell;
+        vertical-align: middle;
+        font-family: $font-titles;
+        font-weight: 600;
+        font-size: 1.15em;
+        padding-left: 1em;
+      }
+    }
+
+    .item-text:after {
+      z-index: -1;
+      position: absolute;
+      display: block;
+      content: "";
+      background-color: $background-primary;
+      width: 0px;
+      height: 100%;
+      left: 0;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+
+    &:hover {
+      .item-text:after {
+        width: 8.5em;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: $card-radius;
+        transition: all 500ms;
+      }
+
+      p {
+        color: $primary-contrast;
+        transition: all 500ms;
+      }
+    }
+
+    &:active {
+
+      p {
+        color: $background-secondary;
+        transition: all 50ms;
+      }
+    }
+  }
+}
+
+@media (max-width: 1059px) {
+  main {
+    display: grid;
+    grid-template-rows: 0.3fr 1fr;
+  }
+
+  #info-personal {
+    display: flex;
+    text-align: right;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    justify-content: space-between;
+
+    header {
+      margin-left: 1em;
+      text-align: center;
+    }
+
+    article {
+      margin-left: 0.5em;
+      text-align: right;
+    }
+  }
+  #info-cv {
+    padding-left: 1em;
+  }
+}
+
+#info-cv {
+
+  background-color: $primary-contrast;
+  font-family: $font-primary;
+  font-size: 0.8em;
+
+  p {
+    margin-left: 1em;
+  }
+
+  h4 {
+    font-family: $font-titles;
+    font-size: 1.5em;
+  }
+
+  #habilidades {
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-column-gap: 1em;
+      grid-row-gap: 0.3em;
+    }
+  }
+}
+
+#info-personal {
+  background-color: $background-secondary;
+  font-family: $font-titles;
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  line-height: 1em;
+
+  header {
+    #foto-perfil {
+      max-width: 150px;
+      max-height: 150px;
+      border-radius: 50%;
+      margin-top: 10%;
+      border: solid white;
+    }
+
+    h3 {
+      color: $primary-contrast;
+    }
+
+    h2 {
+      color: $primary-contrast;
+    }
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding-bottom: 1em;
+  }
+}
+
+a {
+  text-decoration: none;
+}

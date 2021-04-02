@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;300;500;600&family=Source+Code+Pro&display=swap");
+html {
+  background-color: #d97855;
+}
+
+@media (min-width: 1060px) and (orientation: landscape) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  main {
+    margin-top: 3%;
+    display: grid;
+    grid-template-columns: 0.25fr 1fr;
+    min-height: 10%;
+    min-width: 15em;
+    max-width: 80em;
+    border-radius: 16px;
+    box-shadow: 17px 13px 30px -13px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 17px 13px 30px -13px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 17px 13px 30px -13px rgba(0, 0, 0, 0.75);
+  }
+
+  #info-cv {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: "experiencia habilidades" "educacion habilidades";
+    min-width: 50em;
+    padding-left: 2em;
+    position: relative;
+  }
+  #info-cv #educacion {
+    grid-area: educacion;
+  }
+  #info-cv #experiencia {
+    grid-area: experiencia;
+  }
+  #info-cv #habilidades {
+    grid-area: habilidades;
+  }
+  #info-cv #codepen-github {
+    grid-area: habilidades;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    display: flex;
+  }
+  #info-cv .item-github-codepen {
+    align-self: flex-end;
+    position: relative;
+  }
+  #info-cv .item-github-codepen .item-github-codepen-icon {
+    padding-right: 2em;
+    z-index: 3;
+  }
+  #info-cv .item-github-codepen .item-github-codepen-icon svg {
+    width: auto;
+    height: 13em;
+    padding-bottom: 1em;
+    fill: #595b5c;
+    opacity: 30%;
+  }
+  #info-cv .item-github-codepen .item-github-codepen-text span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  #info-cv .item-github-codepen:hover svg {
+    fill: #d97855;
+    opacity: 100%;
+    transition: all 0.3s;
+  }
+  #info-cv #github:after {
+    content: "GitHub";
+    position: absolute;
+    left: 26%;
+    top: 37%;
+    height: 100%;
+    width: 100%;
+    color: black;
+    font-weight: 500;
+    font-size: 1.5em;
+  }
+  #info-cv #codepen:after {
+    content: "CodePen";
+    position: absolute;
+    left: 22%;
+    top: 37%;
+    height: 100%;
+    width: 100%;
+    color: black;
+    font-weight: 500;
+    font-size: 1.5em;
+  }
+
+  #info-personal {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0.3em;
+    font-family: "Oswald", sans-serif;
+    color: #F5F6FA;
+    font-weight: 500;
+    font-size: 1em;
+  }
+  footer a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #item1 p {
+    padding-left: 0em;
+  }
+
+  #item2 svg {
+    height: auto;
+    width: 66%;
+  }
+
+  #item3 svg {
+    transform: translate(-10%, 25%);
+  }
+
+  #item4 svg {
+    transform: translate(-3%, 18%);
+  }
+
+  .item {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: "item-icon item-text";
+    height: 3em;
+  }
+  .item .item-icon {
+    border-radius: 50% 50% 50% 5px;
+    width: 3em;
+    background-color: #d97855;
+    z-index: 2;
+  }
+  .item .item-icon svg {
+    transform: translate(0%, 22%);
+    fill: #F5F6FA;
+    width: auto;
+    height: 75%;
+  }
+  .item .item-text {
+    z-index: 1;
+    width: 8.5em;
+    background-color: #F5F6FA;
+    transform: translateX(-1.5em);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 16px;
+    display: table;
+    position: relative;
+  }
+  .item .item-text span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .item .item-text p {
+    color: #d97855;
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-size: 1.15em;
+    padding-left: 1em;
+  }
+  .item .item-text:after {
+    z-index: -1;
+    position: absolute;
+    display: block;
+    content: "";
+    background-color: #d97855;
+    width: 0px;
+    height: 100%;
+    left: 0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+  .item:hover .item-text:after {
+    width: 8.5em;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 16px;
+    transition: all 500ms;
+  }
+  .item:hover p {
+    color: #F5F6FA;
+    transition: all 500ms;
+  }
+  .item:active p {
+    color: #313A46;
+    transition: all 50ms;
+  }
+}
+@media (max-width: 1059px) {
+  main {
+    display: grid;
+    grid-template-rows: 0.3fr 1fr;
+  }
+
+  #info-personal {
+    display: flex;
+    text-align: right;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    justify-content: space-between;
+  }
+  #info-personal header {
+    margin-left: 1em;
+    text-align: center;
+  }
+  #info-personal article {
+    margin-left: 0.5em;
+    text-align: right;
+  }
+
+  #info-cv {
+    padding-left: 1em;
+  }
+}
+#info-cv {
+  background-color: #F5F6FA;
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.8em;
+}
+#info-cv p {
+  margin-left: 1em;
+}
+#info-cv h4 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5em;
+}
+#info-cv #habilidades ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 1em;
+  grid-row-gap: 0.3em;
+}
+
+#info-personal {
+  background-color: #313A46;
+  font-family: "Oswald", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  line-height: 1em;
+}
+#info-personal header #foto-perfil {
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 50%;
+  margin-top: 10%;
+  border: solid white;
+}
+#info-personal header h3 {
+  color: #F5F6FA;
+}
+#info-personal header h2 {
+  color: #F5F6FA;
+}
+#info-personal article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding-bottom: 1em;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
