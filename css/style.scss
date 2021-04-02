@@ -203,6 +203,7 @@ html {
     .item-text {
       z-index: 1;
       width: 8.5em;
+      height: 100%;
       background-color: $primary-contrast;
       transform: translateX(-1.5em);
       border-top-right-radius: 5px;
