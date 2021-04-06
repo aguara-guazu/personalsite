@@ -269,31 +269,45 @@ html {
   }
 }
 
-@media (max-width: 1059px) {
-  main {
-    display: grid;
-    grid-template-rows: 0.3fr 1fr;
-  }
-
-  #info-personal {
+@media (max-width: 1059px) and (orientation: portrait) {
+  body {
     display: flex;
-    text-align: right;
-    padding-bottom: 1em;
-    padding-top: 1em;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: stretch;
+    justify-items: stretch;
+    height: 99vh;
 
-    header {
-      margin-left: 1em;
+    main {
+      align-self: stretch;
+      height: 97vh;
+
+      #info-personal {
+        z-index: 1;
+        height: 99%;
+        width: 80%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+
+      #info-cv {
+        height: 100%;
+        z-index: 2;
+        padding-left: 3rem;
+        padding-right: 2rem;
+        padding-top: 3rem;
+        font-size: 1.8rem;
+        h4{
+          font-size: 2rem;
+        }
+      }
+    }
+
+    footer {
+      height: 2vh;
       text-align: center;
     }
-
-    article {
-      margin-left: 0.5em;
-      text-align: right;
-    }
-  }
-  #info-cv {
-    padding-left: 1em;
   }
 }
 
